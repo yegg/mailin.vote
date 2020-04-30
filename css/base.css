@@ -1,0 +1,90 @@
+
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    line-height: 1.2;
+    margin: 20px;
+    width: 500px;
+    max-width: 90%;
+}
+
+ul {
+    line-height:200%;
+}
+
+.clear {
+    clear: both;
+}
+
+#col1 {
+    /*
+    width: 60%;
+    float: left; 
+   */
+}
+
+#col2 {
+    /*
+    width: 20%;
+    float: right;
+   */
+}
+
+h2 {
+    font-size: 150%;
+    font-family: Georgia;
+}
+
+h3 {
+    font-size: 125%;
+    font-family: Georgia;
+}
+
+.emoji {
+    width: 64px;
+}
+
+.question {
+    margin-top: 30px;
+    font-size: 110%;
+    font-style: italic
+}
+
+.answer {
+    margin-top: 10px;
+    font-size: 110%;
+    font-style: normal;
+}
+
+#states {
+    margin-top: 40px;
+    width: 400px;
+    max-width: 80%;
+    font-size: 75%;
+}
+
+#footer {
+    margin-top: 20px;
+    width: 400px;
+    max-width: 80%;
+    font-size: 75%;
+}
+
+/*
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+    body {
+	font-size: 150%;
+	width: 1000px;
+    }
+}
+
+@media
+only screen and (-webkit-min-device-pixel-ratio : 2),
+only screen and (min-device-pixel-ratio : 2) {
+    body {
+	font-size: 200%;
+	width: 1000px;
+    }
+}
+*/
