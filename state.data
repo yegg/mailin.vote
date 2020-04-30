@@ -111,7 +111,7 @@ Idaho
 N
 Jan 1 2020
 Oct 23 2020
-XXX
+https://sos.idaho.gov/elect/clerk/forms/2020_Primary_Absentee_Request_Fillable.pdf
 https://idahovotes.gov/absentee-voter-information/
 https://idahovotes.gov/vote-early-idaho/
 
@@ -120,7 +120,7 @@ Illinois
 N
 90 days
 Oct 29 2020
-XXX
+https://www.cookcountyclerk.com/agency/vote-mail
 https://elections.il.gov/downloads/electioninformation/pdf/votebymail.pdf
 N
 
@@ -156,9 +156,9 @@ Kentucky
 Y
 Jan 1 2020
 Oct 27 2020
-XXX
+https://elect.ky.gov/About-Us/Pages/County-Clerks.aspx
 https://elect.ky.gov/Voters/Pages/Absentee-Voting.aspx
-Y
+N
 
 LA
 Louisiana
@@ -167,7 +167,7 @@ Y
 Oct 30 2020
 https://www.sos.la.gov/ElectionsAndVoting/PublishedDocuments/GeneralApplicationForAbsenteeByMailBallot.pdf
 https://www.sos.la.gov/ElectionsAndVoting/Vote/VoteByMail/Pages/default.aspx
-Y
+https://voterportal.sos.la.gov/
 
 ME
 Maine
@@ -176,7 +176,7 @@ N
 Oct 29 2020
 https://www1.maine.gov/online/AbsenteeBallot/ABS-2019-06-11.pdf
 https://www.maine.gov/sos/cec/elec/voter-info/absenteeguide.html
-Y
+https://www.maine.gov/cgi-bin/online/AbsenteeBallot/index.pl
 
 MD
 Maryland
@@ -185,7 +185,7 @@ Jan 1 2020
 Oct 30 2020
 https://elections.maryland.gov/voting/documents/Absentee_Ballot_Application_English.pdf
 https://elections.maryland.gov/voting/absentee.html
-Y
+https://voterservices.elections.maryland.gov/OnlineVoterRegistration/InstructionsStep1
 
 MA
 Massachusetts
@@ -211,15 +211,15 @@ N
 Jan 1 2020
 Nov 2 2020
 https://www.sos.state.mn.us/media/2444/english-regular-absentee-ballot-application.pdf
-https://www.sos.state.mn.us/media/2304/minnesota-election-laws-statutes-and-rules.pdf
-Y
+https://www.sos.state.mn.us/elections-voting/other-ways-to-vote/vote-early-by-mail/
+N
 
 MS
 Mississippi
 Y
 45 days
-XXX
-XXX
+60 days
+https://www.sos.ms.gov/content/documents/elections/uocava_web.pdf
 http://www.sos.ms.gov/elections-voting/pages/faqs.aspx
 N
 
@@ -254,10 +254,10 @@ NV
 Nevada
 N
 0
-Oct 20 2020
-https://www.nvsos.gov/sos/home/showdocument?id=2394
+14 days
+https://www.nvsos.gov/sos/home/showdocument?id=8262
 https://www.nvsos.gov/sos/elections/voters/absentee-voting
-Y
+N
 
 NH
 New Hampshire
@@ -309,9 +309,9 @@ North Dakota
 N
 Jan 1 2020
 Nov 3 2020
-XXX
+https://vip.sos.nd.gov/pdfs/Portals/Voting-MailBallotAbsentee.pdf
 https://vip.sos.nd.gov/PortalListDetails.aspx?ptlhPKID=53&ptlPKID=7#content-start
-N
+https://vip.sos.nd.gov/absentee/
 
 OH
 Ohio
@@ -329,16 +329,16 @@ Jan 1 2020
 Oct 28 2020
 https://www.ok.gov/elections/documents/Oklahoma%20Absentee%20Ballot%20Application%20-%20fillable.pdf
 https://www.ok.gov/elections/Voter_Info/Absentee_Voting/
-Y
+https://okvoterportal.okelections.us/
 
 OR
 Oregon
 N
 0
-XXX
-XXX
-XXX
-XXX
+21 days
+https://sos.oregon.gov/elections/Documents/SEL500.pdf
+https://sos.oregon.gov/voting/Pages/voteinor.aspx
+https://sos.oregon.gov/voting/Pages/registration.aspx?lang=en
 
 PA
 Pennsylvania
@@ -354,7 +354,6 @@ Rhode Island
 N
 Jan 1 2020
 Oct 13 2020
-XXX
 https://elections.ri.gov/voting/applymail.php
 http://www.elections.ri.gov/voting/mailballot.php
 N
@@ -364,7 +363,7 @@ South Carolina
 Y
 Jan 1 2020
 Oct 30 2020
-XXX
+https://info.scvotes.sc.gov/eng/voterinquiry/VoterInformationRequest.aspx?PageMode=AbsenteeRequest
 https://www.scvotes.org/absentee-voting
 N
 
@@ -382,7 +381,7 @@ Tennessee
 Y
 90 days
 Oct 27 2020
-XXX
+https://sos-tn-gov-files.s3.amazonaws.com/5%20Request%20for%20Absentee%20Ballot.pdf
 https://sos.tn.gov/products/elections/absentee-voting#3
 N
 
@@ -391,7 +390,7 @@ Texas
 N
 Jan 1 2020
 Oct 23 2020
-XXX
+https://webservices.sos.state.tx.us/forms/5-15f.pdf
 https://www.votetexas.gov/voting/when.html#early-voting
 N
 
@@ -399,10 +398,10 @@ UT
 Utah
 N
 0
-XXX
-XXX
-XXX
-XXX
+Oct 27 2020
+https://elections.utah.gov/Media/Default/Forms/Utah%20Voter%20Registration%20Form.pdf
+https://voteinfo.utah.gov/learn-about-voting-by-mail-and-absentee-voting/
+https://vote.utah.gov/
 
 VT
 Vermont
@@ -410,8 +409,8 @@ N
 Jan 1 2020
 Nov 2 2020
 https://www.sec.state.vt.us/media/53483/VTAbsenteeRequestGeneric.pdf
-https://www.sec.state.vt.us/elections/voters/absentee-voting.aspx
-Y
+https://sos.vermont.gov/elections/voters/early-absentee-voting/
+https://mvp.vermont.gov/
 
 VA
 Virginia
@@ -420,16 +419,16 @@ N
 Oct 27 2020
 https://www.elections.virginia.gov/media/formswarehouse/Absentee-Voting/Applications/SBE-701-Absentee-Ballot-Application-Rev7-17-long.pdf
 https://www.elections.virginia.gov/casting-a-ballot/absentee-voting/
-Y
+https://vote.elections.virginia.gov/VoterInformation
 
 WA
 Washington
 N
 0
-XXX
-XXX
-XXX
-XXX
+Oct 26 2020
+https://www.sos.wa.gov/elections/print-voter-registration-forms.aspx
+https://www.sos.wa.gov/elections/faq_vote_by_mail.aspx
+https://voter.votewa.gov/
 
 WV
 West Virginia
@@ -438,7 +437,7 @@ Y
 Oct 28 2020
 https://sos.wv.gov/FormSearch/Elections/Voter/Absentee%20Ballot%20Application.pdf
 https://sos.wv.gov/elections/Pages/AbsenteeVotingInformation.aspx
-Y
+N
 
 WI
 Wisconsin
@@ -447,13 +446,13 @@ Jan 1 2020
 Oct 29 2020
 https://elections.wi.gov/sites/default/files/gab_forms/4/el_121_application_for_absentee_ballot_2018_06_f_21413.pdf
 https://elections.wi.gov/voters/absentee
-Y
+N
 
 WY
 Wyoming
 N
 Jan 1 2020
 Nov 2 2020
-XXX
+https://sos.wyo.gov/Elections/Docs/WYCountyClerks.pdf
 http://soswy.state.wy.us/Elections/AbsenteeVoting.aspx
 N

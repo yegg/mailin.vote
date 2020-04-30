@@ -73,6 +73,8 @@ my %state_data = ();
 $param_state = '' if $param_state && ! exists $state_data{$param_state};
  
 my $state = $param_state || $geoip2_state || 'FL';
+#$state = 'OR';
+
 my $state_name = $state_data{$state}{'name'};
 
 my $state_excuse = $state_data{$state}{'excuse'};
@@ -123,7 +125,19 @@ my $state_deadline = $state_data{$state}{'deadline'};
 	$state_deadline = '';
 
     } else {
-	my ($tmp_year, $tmp_month, $tmp_day) = Decode_Date_US($state_deadline);
+
+	my ($tmp_year, $tmp_month, $tmp_day) = ('','','');
+	
+	if ($state_deadline =~ /(\d+) days/) {
+	    my $cutoff_days = $1;
+#	    warn qq($cutoff_days);
+	    ($tmp_year, $tmp_month, $tmp_day) = Add_Delta_Days(2020,11,3,-$cutoff_days);
+	    
+	} else {
+	    ($tmp_year, $tmp_month, $tmp_day) = Decode_Date_US($state_deadline);
+	}
+
+#	warn qq($tmp_year-$tmp_month-$tmp_day);
 	my $tmp_long = Date_to_Text_Long($tmp_year, $tmp_month, $tmp_day, 1);
 	
 	my $delta_days = Delta_Days($tmp_year, $tmp_month, $tmp_day, 2020,11,3);
@@ -258,9 +272,15 @@ nor do we store IP addresses or user agents in our access logs.
 
 <br><br>
 We're continually updating this site, but some info might be out of date.
-For all inquiries (including corrections), please email info at mailin.vote.
+For all inquiries (including corrections), please email info at mailin.vote
+or submit issues/changes <a href="https://github.com/yegg/mailin.vote">at GitHub</a>.
 </footer>
+EOH
+    ;
 
+#print scalar(keys %state_data);
+
+print <<EOH
 </div>
 </body></html>
 EOH
