@@ -2,41 +2,41 @@
 body {
     font-family: Tahoma, Geneva, sans-serif;
     line-height: 1.2;
-    margin: 20px;
-    width: 500px;
+    margin: 15px;
+    width: 600px;
     max-width: 90%;
+/*
+    background-color: #0071bc;
+    background-image: linear-gradient(#0071bc 66%, #003366 100%);
+    color: #FFF;
+*/
 }
 
 ul {
-    line-height:200%;
+    line-height: 150%;
+    padding-top: 0px;
+    padding-left: 30px;
+}
+
+ul li {
+    margin-top: 20px;
 }
 
 .clear {
     clear: both;
 }
 
-#col1 {
-    /*
-    width: 60%;
-    float: left; 
-   */
-}
-
-#col2 {
-    /*
-    width: 20%;
-    float: right;
-   */
-}
-
-h2 {
+.heading {
+    margin-top: 20px;
     font-size: 150%;
-    font-family: Georgia;
+    font-weight: bold;
 }
 
-h3 {
+.heading2 {
+    margin-bottom: 30px;
+    margin-top: 10px;
     font-size: 125%;
-    font-family: Georgia;
+    font-weight: bold;
 }
 
 .emoji {
@@ -49,6 +49,12 @@ h3 {
     font-style: italic
 }
 
+#answers {
+    margin-top: 20px;
+    font-size: 110%;
+    width: 400px;
+}
+
 .answer {
     margin-top: 10px;
     font-size: 110%;
@@ -56,7 +62,7 @@ h3 {
 }
 
 #states {
-    margin-top: 40px;
+    margin-top: 50px;
     width: 400px;
     max-width: 80%;
     font-size: 75%;

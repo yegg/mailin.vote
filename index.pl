@@ -4,14 +4,14 @@ use warnings;
 
 use GeoIP2::WebService::Client;
 use CGI ':standard';
-use Date::Calc qw (Add_Delta_Days Delta_Days Today_and_Now Date_to_Text_Long Decode_Date_US);
+use Date::Calc qw (Add_Delta_Days Delta_Days Today_and_Now Date_to_Text_Long Date_to_Text Decode_Date_US Day_of_Week_to_Text Month_to_Text Day_of_Week Day_of_Week_Abbreviation);
 
-my $debug = 0;
+my $is_debug = 0;
 my $is_stage = 0;
-$is_stage = 1 if $ENV && $ENV{'SCRIPT_NAME'} =~ /stage/i;
+$is_stage = 1 if $is_debug;
 
 my $data_file = 'state.data';
-$data_file = 'stage.data.stage' if $is_stage;
+$data_file = 'state.data.stage' if $is_stage;
 
 my $geoip2_client = GeoIP2::WebService::Client->new(
     account_id  => 289360,
@@ -60,10 +60,22 @@ my %state_data = ();
 	chomp($state_info_url);
 	$state_data{$state}{'info_url'} = $state_info_url;
 	
-	my $state_apply_online = <IN>;
-	chomp($state_apply_online);
-	$state_data{$state}{'apply_online'} = $state_apply_online;
+	my $state_apply_url = <IN>;
+	chomp($state_apply_url);
+	$state_data{$state}{'apply_url'} = $state_apply_url;
 
+	my $state_register_cutoff = <IN>;
+	chomp($state_register_cutoff);
+	$state_data{$state}{'register_cutoff'} = $state_register_cutoff;
+
+	my $state_register_url = <IN>;
+	chomp($state_register_url);
+	$state_data{$state}{'register_url'} = $state_register_url;
+
+	my $state_register_form_url = <IN>;
+	chomp($state_register_form_url);
+	$state_data{$state}{'register_form_url'} = $state_register_form_url;
+	
 	my $tmp_line = <IN>;
     }
     close(IN);
@@ -79,16 +91,20 @@ my $state_name = $state_data{$state}{'name'};
 
 my $state_excuse = $state_data{$state}{'excuse'};
 {
-    $state_excuse = ($state_excuse eq 'N') ? 'No' : 'Yes';
+    if ($state_excuse eq 'N') {
+	$state_excuse = qq(No reason is needed to apply);
+    } else {
+	$state_excuse = qq(A reason is needed to apply);
+    }
 };
 
 my $state_cutoff = $state_data{$state}{'cutoff'};
-#$state_cutoff = '45 days' if $debug;
+#$state_cutoff = '45 days' if $is_debug;
 {
 
 
     if ($state_cutoff eq '0') {
-	$state_cutoff = 'Yes';
+	$state_cutoff = '';
 
     } else {
 
@@ -102,17 +118,18 @@ my $state_cutoff = $state_data{$state}{'cutoff'};
 	    ($tmp_year, $tmp_month, $tmp_day) = Decode_Date_US($state_cutoff);
 	}
 
-	my $tmp_long = Date_to_Text_Long($tmp_year, $tmp_month, $tmp_day, 1);
+	my $tmp_long = Date_to_Text($tmp_year, $tmp_month, $tmp_day, 1);
+	$tmp_long = Day_of_Week_Abbreviation(Day_of_Week($tmp_year, $tmp_month, $tmp_day)) . ' ' . substr(Month_to_Text($tmp_month),0,3) . ' ' . $tmp_day;
 	
 	my ($now_year,$now_month,$now_day) = Today_and_Now();
 	
 	my $delta_days = Delta_Days($now_year, $now_month, $now_day, $tmp_year,$tmp_month,$tmp_day);
 
 	if ($delta_days<0) {
-	    $state_cutoff = 'Yes';
+	    $state_cutoff = '';
 
 	} else {
-	    $state_cutoff = qq(No, but you can sign up in $delta_days days on $tmp_long);
+	    $state_cutoff = qq( wait <br><b>$delta_days days</b> (until $tmp_long), then);
 	}
 
     }
@@ -169,19 +186,40 @@ my $state_info_url = $state_data{$state}{'info_url'};
     
 };
 
-my $state_apply_online = $state_data{$state}{'apply_online'};
+my $state_apply_url = $state_data{$state}{'apply_url'} || '';
 {
-    if ($state_apply_online eq 'Y') {
-	$state_apply_online = 'Yes';
+    if ($state_apply_url eq 'Y') {
+	$state_apply_url = '';
 
-    } elsif ($state_apply_online =~ /^http/) {
-	$state_apply_online = qq(Yes, <a href="$state_apply_online">here</a>);
-
+    } elsif ($state_apply_url =~ /^http/) {
+	$state_apply_url = qq(<a href="$state_apply_url">this site</a>);
+	
     } else {
-	$state_apply_online = 'No';
+	$state_apply_url = '';
     }
 };
-  
+if (!$state_apply_url && $state_form_url) {
+    $state_apply_url = qq(<a href="$state_form_url">this form</a>);
+}
+
+my $state_register_cutoff = $state_data{$state}{'register_cutoff'} || '';
+my $state_register_url = $state_data{$state}{'register_url'} || '';
+my $state_register_form_url = $state_data{$state}{'register_form_url'} || '';
+{
+    if ($state_register_url eq 'N') {
+	$state_register_url = '';
+
+    } elsif ($state_register_url =~ /^http/) {
+	$state_register_url = qq(<a href="$state_register_url">this site</a>);
+	
+    } else {
+	$state_register_url = '';
+    }
+};
+if (!$state_register_url && $state_register_form_url) {
+    $state_register_url = qq(<a href="$state_register_form_url">this form</a>);
+}
+
 print "Content-type:text/html\n\n";
 print <<EOH
 <html><head>
@@ -195,54 +233,48 @@ print <<EOH
 <body>
 <img class="emoji" src="img/ballot-box.png">
 <img class="emoji" src="img/mailbox.png">
-<div class="clear">
 
-<div id="col1">
-<h2>Vote by Mail in $state_name in the 2020 U.S. Presidential Election</h2>
+<div class="heading">Vote by Mail in $state_name</div>
+<div class="heading2">2020 Presidential Election (Nov 3)</div>
 
-<div class="question">When is the election?</div>
-<div class="answer">Tuesday Nov 3, 2020.</div>
-
-<div class="question">Can I apply now to vote by mail?</div>
-<div class="answer">$state_cutoff.</div>
-
-<div class="question">Do I need an excuse?</div>
-<div class="answer">$state_excuse.</div>
+<div id="answers">
+<ul>
 EOH
     ;
 
-if ($state_deadline) {
+if ($state eq 'ND') {
     print <<EOH
-<div class="question">When is the deadline to apply?</div>
-<div class="answer">$state_deadline.</div>
-EOH
-;	
-}
-
-if ($state_apply_online) {
-    print <<EOH
-<div class="question">Can I apply online?</div>
-<div class="answer">$state_apply_online.</div>
-EOH
-    ;
-}
-
-if ($state_form_url) {
-    print <<EOH
-<div class="question">Can I apply by mail?</div>
-<div class="answer">Yes, with <a href="$state_form_url">this form</a>.</div>
-EOH
-    ;
-}
-
-if ($state_info_url) {
-    print <<EOH
-<div class="question">Where can I get more official info?</div>
-<div class="answer"><a href="$state_info_url">Here</a>.</div>
+<li>Use <b>$state_apply_url</b> to get a mail-in ballot.
 EOH
 	;
-}
     
+} elsif ($state_register_url eq $state_apply_url) {
+    print <<EOH
+<li>Use <b>$state_apply_url</b> to get a mail-in ballot,
+which is the same site for voter registration.
+EOH
+	;
+    
+} else {
+    
+    print <<EOH
+<li>If you are not registered to vote, 
+<br>use <b>$state_register_url</b> to register first.
+
+<li>If you are registered to vote, 
+$state_cutoff
+<br>use <b>$state_apply_url</b> to get a mail-in ballot.
+EOH
+    ;
+
+}
+
+
+print <<EOH
+<li>$state_excuse;
+<br>see <b><a href="$state_info_url">this page</a></b> for more info.
+EOH
+    ;
 
 #FCGI Params
 #foreach my $key (sort(keys %ENV)) {
@@ -251,9 +283,10 @@ EOH
 
 
 print <<EOH
+</ul>
 </div>
-<div id="col2">
 <div id="states">
+States: 
 EOH
     ;
 
@@ -267,13 +300,14 @@ print <<EOH
 </div>
 
 <div id="footer">
-Privacy Policy: no tracking. We don't use any third-party services on this site,
+Privacy: We don't collect or share personal information. 
+As such, we don't use any third-party services on this site,
 nor do we store IP addresses or user agents in our access logs.
 
 <br><br>
-We're continually updating this site, but some info might be out of date.
-For all inquiries (including corrections), please email info at mailin.vote
-or submit issues/changes <a href="https://github.com/yegg/mailin.vote">at GitHub</a>.
+Updates: We update this site, but some info might be dated.
+To submit corrections, please email info\@mailin.vote
+or add an issue <a href="https://github.com/yegg/mailin.vote">on GitHub</a>.
 </footer>
 EOH
     ;
