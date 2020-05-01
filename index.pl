@@ -223,7 +223,28 @@ if (!$state_register_url && $state_register_form_url) {
 print "Content-type:text/html\n\n";
 print <<EOH
 <html><head>
+<link rel="apple-touch-icon" sizes="57x57" href="/favicon/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="/favicon/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/favicon/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="/favicon/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="/favicon/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="/favicon/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="/favicon/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="/favicon/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="/favicon/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png">
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Vote by Mail 2020">
+<meta name="twitter:image" content="https://mailin.vote/favicon/apple-icon-120x120.png">
+<meta name="twitter:site" content="">
+<meta name="twitter:description" content="How to vote by mail in the 2020 U.S. Presidential Election">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
 <title>Vote by Mail 2020</title>
 <link rel="stylesheet" type="text/css" href="css/base.css">
 <style type="text/css">
@@ -234,7 +255,7 @@ print <<EOH
 <img class="emoji" src="img/ballot-box.png">
 <img class="emoji" src="img/mailbox.png">
 
-<div class="heading">Vote by Mail in $state_name</div>
+<div class="heading">Vote by Mail: $state_name</div>
 <div class="heading2">2020 Presidential Election (Nov 3)</div>
 
 <div id="answers">
@@ -300,14 +321,15 @@ print <<EOH
 </div>
 
 <div id="footer">
+Note: We update this site, but it could become dated.
+Please send feedback to info\@mailin.vote or 
+<a href="https://github.com/yegg/mailin.vote/issues/new">add an issue</a>
+on <a href="https://github.com/yegg/mailin.vote">GitHub</a>.
+
+<br><br>
 Privacy: We don't collect or share personal information. 
 As such, we don't use any third-party services on this site,
 nor do we store IP addresses or user agents in our access logs.
-
-<br><br>
-Updates: We update this site, but some info might be dated.
-To submit corrections, please email info\@mailin.vote
-or add an issue <a href="https://github.com/yegg/mailin.vote">on GitHub</a>.
 </footer>
 EOH
     ;

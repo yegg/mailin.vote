@@ -1,6 +1,6 @@
 
 body {
-    font-family: Tahoma, Geneva, sans-serif;
+    font-family: Verdana, Arial, sans-serif;
     line-height: 1.2;
     margin: 15px;
     width: 600px;
@@ -30,6 +30,7 @@ ul li {
     margin-top: 20px;
     font-size: 150%;
     font-weight: bold;
+    font-family: Palatino, Georgia, serif;
 }
 
 .heading2 {
@@ -37,6 +38,7 @@ ul li {
     margin-top: 10px;
     font-size: 125%;
     font-weight: bold;
+    font-family: Palatino, Georgia, serif;
 }
 
 .emoji {
@@ -53,6 +55,7 @@ ul li {
     margin-top: 20px;
     font-size: 110%;
     width: 400px;
+    font-family: Palatino, Georgia, serif;
 }
 
 .answer {
@@ -66,6 +69,7 @@ ul li {
     width: 400px;
     max-width: 80%;
     font-size: 75%;
+    line-height: 1.4;
 }
 
 #footer {
